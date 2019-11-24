@@ -41,6 +41,7 @@ export default function App() {
           <li key={repo.id}>
             {repo.name}
             {repo.favorite && <span> (Favorito)</span>}
+            &nbsp;
             <button onClick={() => handleFavorite(repo.id)}>Favoritar</button>
           </li>
         ))}
