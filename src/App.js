@@ -5,12 +5,18 @@ export default function App() {
   const [repos, setRepos] = useState([])
  
   // WillMount
-  useEffect(async () => {
-    const response = await fetch('https://api.github.com/users/didiraja/repos');
+  useEffect(() => {
 
-    const data = await response.json();
+    async function getRepos() {
+      const response = await fetch('https://api.github.com/users/didiraja/repos');
+  
+      const data = await response.json();
+      
+      setRepos(await data)
+    }
 
-    setRepos(data)
+    getRepos();
+
   }, [])
 
   // DidUpdate
